@@ -5,6 +5,29 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
+
+// MongoDB
+var mongoose = require('mongoose');
+require('./models/Posts');
+require('./models/Comments');
+
+//mongoose.connect('mongodb://localhost/news');
+
+var mongoURI = "mongodb://localhost:27017/news";
+var MongoDB = mongoose.connect(mongoURI).connection;
+MongoDB.on('error', function(err) { console.log(err.message); });
+MongoDB.once('open', function() {
+  console.log("mongodb connection open");
+});
+
+
+
+
+
+
+
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
