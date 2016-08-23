@@ -25,5 +25,9 @@ app.controller('PostsController', ['$scope', 'posts', 'post', 'auth',	function($
     posts.upvoteComment(post, comment);
   };
 
+  $scope.reduceUpvotes = function(comment){
+    posts.downvoteComment(post, comment);
+  };
+
 
 }]);

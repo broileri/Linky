@@ -20,15 +20,12 @@ Yhteensä: h
 
 # TODO
 
-- feature downvote: Implement a 'downvoting' feature
 - feature vote once: Only allow authenticated users to vote once.
 - feature number of comments: Display the number of comments next to each post on the main page
 - feature hide new comments box: use ng-hide to hide the 'new comment' and 'new post' input box until a user clicks a button to see the field
 - animations for upvotes/downvotes?
 - account settings
 - looks
-- back links
-- description
 - link categories/tags (show posts tagged as, search tags)
 - newest links first
 - link fixes

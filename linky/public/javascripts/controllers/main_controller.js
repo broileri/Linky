@@ -13,13 +13,19 @@ app.controller('MainController', ['$scope', 'posts', 'auth', function($scope, po
     posts.create({
       title: $scope.title,
       link: $scope.link,
+      description: $scope.description,
     });
     $scope.title = '';
     $scope.link = '';
+    $scope.description = '';
   };
 
   $scope.incrementUpvotes = function(post) {
     posts.upvote(post);
+  };
+
+  $scope.reduceUpvotes = function(post) {
+    posts.downvote(post);
   };
 
 }]);
