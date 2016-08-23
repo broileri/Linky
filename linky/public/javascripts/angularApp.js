@@ -6,7 +6,7 @@ app.config(['$stateProvider',	'$urlRouterProvider',	function($stateProvider, $ur
 	  $stateProvider
 	    .state('home', {
         url: '/home',
-        templateUrl: '/home.html',
+        templateUrl: 'templates/home.html',
         controller: 'MainController',
         // Query posts from the backend before the state finishes loading
         resolve: {
@@ -14,12 +14,12 @@ app.config(['$stateProvider',	'$urlRouterProvider',	function($stateProvider, $ur
             return posts.getAll();
           }]
         }
-      });
+      })
 
-	  $stateProvider
+
 	    .state('posts', {
         url: '/posts/{id}',
-        templateUrl: '/posts.html',
+        templateUrl: 'templates/posts.html',
         controller: 'PostsController',
         // Query posts with comments from the backend before the state finishes loading
         resolve: {
@@ -27,12 +27,12 @@ app.config(['$stateProvider',	'$urlRouterProvider',	function($stateProvider, $ur
             return posts.get($stateParams.id);
           }]
         }
-      });
+      })
 
-    $stateProvider
+
       .state('login', {
         url: '/login',
-        templateUrl: '/login.html',
+        templateUrl: 'templates/login.html',
         controller: 'AuthController',
         onEnter: ['$state', 'auth', function($state, auth){
           if(auth.isLoggedIn()){
@@ -41,10 +41,10 @@ app.config(['$stateProvider',	'$urlRouterProvider',	function($stateProvider, $ur
         }]
       })
 
-    $stateProvider
+
       .state('register', {
         url: '/register',
-        templateUrl: '/register.html',
+        templateUrl: 'templates/register.html',
         controller: 'AuthController',
         onEnter: ['$state', 'auth', function($state, auth){
           if(auth.isLoggedIn()){
