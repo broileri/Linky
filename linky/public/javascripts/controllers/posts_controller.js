@@ -20,8 +20,11 @@ app.controller('PostsController', ['$scope', 'posts', 'post', 'auth',	function($
   };
 
 
+  $scope.deletePost = function() {
+    posts.deletePost(post._id);
+  };
 
-  $scope.incrementUpvotes = function(comment){
+  $scope.incrementUpvotes = function(comment) {
     posts.upvoteComment(post, comment);
   };
 

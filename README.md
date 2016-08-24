@@ -11,7 +11,7 @@ MEAN-stackiä käyttävä linkkisovellus
 - 21.8. su - 2h
 - 22.8. ma - 4h
 - 23.8. ti - 2h
-- 24.8. ke - 
+- 24.8. ke - 4h + 00->
 - 25.8. to - 
 - 26.8. pe - 
 
@@ -20,7 +20,10 @@ Yhteensä: 19h
 
 # TODO
 
-- link fixes
+- link entering fixes ui
+- delete post (and attached comments)
+- delete only own post
+- show score on view
 - feature vote once: Only allow users to vote once.
 - feature number of comments: Display the number of comments next to each post on the main page
 - feature hide new comments box: hide the 'new comment' and 'new post' input box until a user clicks a button to see the field
@@ -32,3 +35,4 @@ Yhteensä: 19h
 - account settings
 - link categories/tags (show posts tagged as, search tags)
 - newest links first?
+- postaaja & linkki tooltippiin

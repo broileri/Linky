@@ -1,4 +1,4 @@
-app.factory('posts', ['$http', 'auth', function($http, auth) {
+app.factory('posts', ['$http', 'auth', '$window', function($http, auth, $window) {
 
   var o = {posts: []};
 
@@ -34,6 +34,13 @@ app.factory('posts', ['$http', 'auth', function($http, auth) {
 
   o.get = function(id) {
     return $http.get('/posts/' + id).then(function(res){
+      return res.data;
+    });
+  };
+
+  o.deletePost = function(id) {
+    return $http.delete('/posts/' + id).success(function(res) {
+      $window.location.href = '/#/home'; // redirecting back home after deletion
       return res.data;
     });
   };

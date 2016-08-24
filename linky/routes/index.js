@@ -12,12 +12,16 @@ var User = mongoose.model('User');
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+
+
+
+// GET the home page
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index');
 });
 
 
+// GET the posts
 router.get('/posts', function(req, res, next) {
   Post.find(function(err, posts){
     if(err){ return next(err); }
@@ -27,6 +31,7 @@ router.get('/posts', function(req, res, next) {
 });
 
 
+// POST (create) a new post
 router.post('/posts', auth, function(req, res, next) {
   var post = new Post(req.body);
   post.author = req.payload.username;
@@ -67,7 +72,7 @@ router.param('comment', function(req, res, next, id) {
 });
 
 
-
+// GET a post
 router.get('/posts/:post', function(req, res, next) {
   req.post.populate('comments', function(err, post) {
     if (err) { return next(err); }
@@ -77,7 +82,19 @@ router.get('/posts/:post', function(req, res, next) {
 });
 
 
-// Post upvotes
+// DELETE a post
+router.delete('/posts/:post', function(req, res, next) {  
+    Post.remove({_id: req.params.post}, function(err, post) {
+        if (err)
+            res.send(err);
+
+        res.json({ message: 'Successfully deleted' });
+        //res.redirect('/home');
+    });
+});
+
+
+// PUT an upvote to a post
 router.put('/posts/:post/upvote', auth, function(req, res, next) {
   req.post.upvote(function(err, post){
     if (err) { return next(err); }
@@ -87,7 +104,7 @@ router.put('/posts/:post/upvote', auth, function(req, res, next) {
 });
 
 
-// Post downvotes
+// PUT a downvote to a post
 router.put('/posts/:post/downvote', auth, function(req, res, next) {
   req.post.downvote(function(err, post){
     if (err) { return next(err); }
@@ -97,7 +114,7 @@ router.put('/posts/:post/downvote', auth, function(req, res, next) {
 });
 
 
-
+// POST (create) a comment
 router.post('/posts/:post/comments', auth, function(req, res, next) {
   var comment = new Comment(req.body);
   comment.post = req.post;
@@ -116,7 +133,7 @@ router.post('/posts/:post/comments', auth, function(req, res, next) {
 });
 
 
-// Comment upvotes
+// PUT an upvote to a comment
 router.put('/posts/:post/comments/:comment/upvote', auth, function(req, res, next) {
   req.comment.upvote(function(err, comment){
     if (err) { return next(err); }
@@ -125,7 +142,8 @@ router.put('/posts/:post/comments/:comment/upvote', auth, function(req, res, nex
   });
 });
 
-// Comment downvotes
+
+// PUT a downvote to a comment
 router.put('/posts/:post/comments/:comment/downvote', auth, function(req, res, next) {
   req.comment.downvote(function(err, comment){
     if (err) { return next(err); }
@@ -135,6 +153,7 @@ router.put('/posts/:post/comments/:comment/downvote', auth, function(req, res, n
 });
 
 
+// POST (register) a new user
 router.post('/register', function(req, res, next){
   if(!req.body.username || !req.body.password){
     return res.status(400).json({message: 'Please fill out all fields'});
@@ -154,6 +173,7 @@ router.post('/register', function(req, res, next){
 });
 
 
+// POST (login) a user
 router.post('/login', function(req, res, next){
   if(!req.body.username || !req.body.password){
     return res.status(400).json({message: 'Please fill out all fields'});
@@ -169,5 +189,6 @@ router.post('/login', function(req, res, next){
     }
   })(req, res, next);
 });
+
 
 module.exports = router;
