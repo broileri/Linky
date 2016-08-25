@@ -37,6 +37,7 @@ Features
 - allow user to comment a link without opening view?
 - comment dates
 - account settings?
+- tests
 
 Looks
 - UI: animations for upvotes/downvotes?
