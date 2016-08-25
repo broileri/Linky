@@ -11,28 +11,33 @@ MEAN-stackiä käyttävä linkkisovellus
 - 21.8. su - 2h
 - 22.8. ma - 4h
 - 23.8. ti - 2h
-- 24.8. ke - 4h + 00->
+- 24.8. ke - 6,5h
 - 25.8. to - 
 - 26.8. pe - 
 
-Yhteensä: 19h
+Yhteensä: 25,5h
 
 
 # TODO
 
-- link entering fixes ui
-- delete post (and attached comments)
-- delete only own post
-- show score on view
-- feature vote once: Only allow users to vote once.
-- feature number of comments: Display the number of comments next to each post on the main page
-- feature hide new comments box: hide the 'new comment' and 'new post' input box until a user clicks a button to see the field
-- animations/delays for upvotes/downvotes?
-- looks
-- error msgs
+- UI: valid link message/instruction
+- UI: long descriptions fit on page
+- UI: show negative scores as red
+- feature: allow users to vote only once per link
+- feature: display the number of comments next to each post on the main page
+- feature: hide new comments box: hide the 'new comment' and 'new post' input box until a user clicks a button to see the field
+- UI: animations for upvotes/downvotes
+- UI: bckgrnd etc.
+- error/success msgs (post deletion, post addition, comment addition)
 - mlab & ...heroku?
+- public repo
 
-- account settings
+- account settings?
+- delete only own post (server side)
 - link categories/tags (show posts tagged as, search tags)
-- newest links first?
-- postaaja & linkki tooltippiin
+- newest links on main page?
+- search?
+- show links user has upvoted?
+- show user's posted links/comments?
+- poster & link to tooltip?
+- allow user to comment a link without opening view?

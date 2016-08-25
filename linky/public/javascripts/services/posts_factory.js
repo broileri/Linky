@@ -38,8 +38,12 @@ app.factory('posts', ['$http', 'auth', '$window', function($http, auth, $window)
     });
   };
 
+
+  // To do: only author can delete
   o.deletePost = function(id) {
-    return $http.delete('/posts/' + id).success(function(res) {
+    return $http.delete('/posts/' + id, null, {
+      headers: {Authorization: 'Bearer '+auth.getToken()}
+    }).success(function(res){
       $window.location.href = '/#/home'; // redirecting back home after deletion
       return res.data;
     });

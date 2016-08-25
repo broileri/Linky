@@ -88,8 +88,7 @@ router.delete('/posts/:post', function(req, res, next) {
         if (err)
             res.send(err);
 
-        res.json({ message: 'Successfully deleted' });
-        //res.redirect('/home');
+        res.json({ message: 'Successfully deleted' });        
     });
 });
 

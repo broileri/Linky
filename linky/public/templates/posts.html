@@ -2,15 +2,16 @@
   <div class="page-header">
 
     <h3>
-      <a href="{{post.link}}">
-        {{post.title}}
-      </a>      
-    </h3>
-    <span>posted by {{post.author}}</span>
-  </div>
-
-
-  <button type="submit" class="btn btn-primary" ng-click="deletePost()" ng-show="isLoggedIn()">DELETE POST</button>
+      <a target='_blank' href="{{post.link}}">{{post.title}}</a>  
+      <span style="font-size:17px;"">({{post.upvotes}})</span>
+    </h3>    
+    <span ng-show="currentUserIsAuthor()">
+      posted by you <a href="#" ng-click="deletePost()">DELETE POST</a>
+    </span>
+    <span ng-hide="currentUserIsAuthor()">
+      posted by {{post.author}}
+    </span>
+  </div> 
 
   <div>
     {{post.description}}

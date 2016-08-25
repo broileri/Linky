@@ -2,9 +2,9 @@ app.controller('PostsController', ['$scope', 'posts', 'post', 'auth',	function($
 
 	$scope.post = post;
   $scope.isLoggedIn = auth.isLoggedIn;
-
+  
 	
-  $scope.addComment = function(){
+  $scope.addComment = function() {
     
     if($scope.body === '') { 
       return; 
@@ -21,6 +21,9 @@ app.controller('PostsController', ['$scope', 'posts', 'post', 'auth',	function($
 
 
   $scope.deletePost = function() {
+    if (!post.author === auth.currentUser()) {
+      return;
+    }
     posts.deletePost(post._id);
   };
 
@@ -28,9 +31,15 @@ app.controller('PostsController', ['$scope', 'posts', 'post', 'auth',	function($
     posts.upvoteComment(post, comment);
   };
 
-  $scope.reduceUpvotes = function(comment){
+  $scope.reduceUpvotes = function(comment) {
     posts.downvoteComment(post, comment);
   };
+
+  $scope.currentUserIsAuthor = function() {    
+    return post.author === auth.currentUser();
+  }; 
+
+ 
 
 
 }]);
