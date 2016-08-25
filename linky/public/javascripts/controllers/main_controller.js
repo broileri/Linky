@@ -4,6 +4,8 @@ app.controller('MainController', ['$scope', 'posts', 'auth', function($scope, po
 
   $scope.posts = posts.posts;
 
+  $scope.link ='http://';
+
   $scope.addPost = function(){
 
     if(!$scope.title || $scope.title === '') { 
@@ -25,7 +27,7 @@ app.controller('MainController', ['$scope', 'posts', 'auth', function($scope, po
       description: $scope.description,
     });
     $scope.title = '';
-    $scope.link = '';
+    $scope.link = 'http://';
     $scope.description = '';
   };
 
@@ -36,5 +38,22 @@ app.controller('MainController', ['$scope', 'posts', 'auth', function($scope, po
   $scope.reduceUpvotes = function(post) {
     posts.downvote(post);
   };
+
+  $scope.handleClick = function(evt) {
+    switch(evt.which) {
+        case 1:
+             // left click
+            break;
+        case 2:
+            // middle click
+            break;
+        case 3:            
+            $scope.link = null;
+            break;
+        default:
+            console.log("Strange mouse detected. :3");
+            break;
+    }
+}
 
 }]);

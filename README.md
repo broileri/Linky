@@ -1,39 +1,33 @@
 # Linky
 
-MEAN-stackiä käyttävä linkkisovellus
+A link sharing app developed using the MEAN stack.
 
-- 15.8. ma - 3h
-- 16.8. ti - 3h
-- 17.8. ke - 3h
-- 18.8. to - 2h
-- 19.8. pe - 0h
-- 20.8. la - 0h
-- 21.8. su - 2h
-- 22.8. ma - 4h
-- 23.8. ti - 2h
-- 24.8. ke - 6,5h
-- 25.8. to - 
-- 26.8. pe - 
+- 15.8. ma - 3 h
+- 16.8. ti - 3 h
+- 17.8. ke - 3 h
+- 18.8. to - 2 h
+- 19.8. pe - 0 h
+- 20.8. la - 0 h
+- 21.8. su - 2 h
+- 22.8. ma - 4 h
+- 23.8. ti - 2 h
+- 24.8. ke - 6,5 h
+- 25.8. to - 4,5 h
+- 26.8. pe - 5 h
 
-Yhteensä: 25,5h
+--> 30,5 h
 
 
 # TODO
 
-- UI: valid link message/instruction
-- UI: long descriptions fit on page
-- UI: show negative scores as red
-- feature: allow users to vote only once per link
-- feature: display the number of comments next to each post on the main page
-- feature: hide new comments box: hide the 'new comment' and 'new post' input box until a user clicks a button to see the field
-- UI: animations for upvotes/downvotes
-- UI: bckgrnd etc.
-- error/success msgs (post deletion, post addition, comment addition)
-- mlab & ...heroku?
-- public repo
-
-- account settings?
+Features
+- allow users to vote only once per link
+- display the number of comments next to each post on the main page?
+- hide the 'new comment' and 'new post' input box until a user clicks a button to see the field
+- make 'new comment' box easier to reach if a post has a lot of comments
+- error/success flash msgs (post deletion, post addition, comment addition...)
 - delete only own post (server side)
+- hide the link description if a link doesn't have a description
 - link categories/tags (show posts tagged as, search tags)
 - newest links on main page?
 - search?
@@ -41,3 +35,16 @@ Yhteensä: 25,5h
 - show user's posted links/comments?
 - poster & link to tooltip?
 - allow user to comment a link without opening view?
+- comment dates
+- account settings?
+
+Looks
+- UI: animations for upvotes/downvotes?
+- UI: show negative scores as red?
+- clean CSS/styles, use responsive CSS, edit colors...
+- max string lengths/validations
+
+
+
+- mlab & ...heroku?
+- public repo

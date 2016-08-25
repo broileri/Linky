@@ -2,7 +2,20 @@ app.controller('PostsController', ['$scope', 'posts', 'post', 'auth',	function($
 
 	$scope.post = post;
   $scope.isLoggedIn = auth.isLoggedIn;
+  $scope.shortenedLink = shortenLink();
   
+
+
+
+  function shortenLink() {    
+    
+    if (post.link.length > 60) {
+      console.log(post.link.length);
+      return post.link.slice(0, 57) + '...';      
+    }
+    return post.link;
+  };
+
 	
   $scope.addComment = function() {
     
@@ -33,6 +46,14 @@ app.controller('PostsController', ['$scope', 'posts', 'post', 'auth',	function($
 
   $scope.reduceUpvotes = function(comment) {
     posts.downvoteComment(post, comment);
+  };
+
+  $scope.incrementPostUpvotes = function(post) {
+    posts.upvote(post);
+  };
+
+  $scope.reducePostUpvotes = function(post) {
+    posts.downvote(post);
   };
 
   $scope.currentUserIsAuthor = function() {    

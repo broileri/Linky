@@ -1,45 +1,50 @@
-<div class="col-md-6 col-md-offset-3">
-<div class="page-header">
-  <h1>Linky</h1>
-</div>
+<div class="col-md-6 col-md-offset-3 linkyContent linkyColor">
+  <div class="page-header">
+    <h1>Linky</h1>
+  </div>
 
 
-<div ng-repeat="post in posts | orderBy:'-upvotes'">
+  <div class="upvotes" ng-repeat="post in posts | orderBy:'-upvotes'">
+    <span class="upvoteWrapper ">
 
-  <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
-  <span class="glyphicon glyphicon-thumbs-down" ng-click="reduceUpvotes(post)"></span>
+      <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
+      <span class="glyphicon glyphicon-thumbs-down" ng-click="reduceUpvotes(post)"></span>
 
-  {{post.upvotes}}
-  <span style="font-size:20px; margin-left:10px;">
-    <a  target='_blank' href="{{post.link}}">{{post.title}}</a> 
-        
-    
+      ... {{post.upvotes}}
 
-    <span>
-      <a href="#/posts/{{post._id}}">View</a>
     </span>
+    <span class="linkWrapper">
+      <a  target='_blank' href="{{post.link}}">{{post.title}}</a>     
 
+      <span class="viewLink">
+        <a href="#/posts/{{post._id}}">Details</a>
+      </span>
 
-  </span>
-</div>
-
-
-<form ng-submit="addPost()" ng-show="isLoggedIn()" style="margin-top:30px;">
-  <h3>Add a new post</h3>
-
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Title" ng-model="title"></input>
+    </span>
   </div>
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Link" ng-model="link"></input>
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Description" ng-model="description"></input>
-  </div>
-  <button type="submit" class="btn btn-primary">Post</button>
-</form>
-<br>
-<div ng-hide="isLoggedIn()">
-  <p>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can add a post.</p>
-</div>  
+
+
+  <form ng-submit="addPost()" ng-show="isLoggedIn()" style="margin-top:30px;">
+
+    <h3>Add a new link</h3>
+
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Title" ng-model="title">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" ng-mousedown="handleClick($event)" ng-model="link">       
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Description" ng-model="description">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Post</button>
+  </form>
+
+  <br>
+  <div ng-hide="isLoggedIn()">
+    <p>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can add a post.</p>
+  </div>  
 </div>

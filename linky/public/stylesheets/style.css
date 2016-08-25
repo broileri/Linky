@@ -1,0 +1,102 @@
+.linkyBackground {
+	background-image: url(/images/ignasi_pattern_s.png);
+}
+
+
+.linkyColor {
+	background-color: #F8F8F8;
+}
+
+
+.viewLink {
+	font-size: 12px;
+}
+
+.linkDescriptionBackground {
+	background-color: #FFFFFF;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding: 10px;
+	border: #7F7F7F solid 2px;
+}
+
+
+.linkyContent {
+	margin-top: 5%;
+	color: #595959;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.linkyContent a:link{
+    color: #777;
+}
+
+.linkyContent a:visited{
+    color: #777;
+}
+
+.upvotes {
+	color: #a6a6a6;
+}
+
+.upvoteWrapper {
+	margin-right: 3px;	
+}
+
+.linkWrapper {
+	font-size:20px;
+	padding-left:10px;
+}
+
+.commentBody { 	
+    word-break:break-all;           
+}
+
+.commentAuthor {
+   margin: 10px;
+}
+
+.bubble 
+{
+position: relative;
+padding: 10px;
+background: #FFFFFF;
+color: #595959;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: #7F7F7F solid 2px;
+}
+
+.bubble:after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 6px 4px 0;
+border-color: #FFFFFF transparent;
+display: block;
+width: 0;
+z-index: 1;
+margin-left: -4px;
+bottom: -6px;
+left: 4%;
+}
+
+.bubble:before 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 7px 5px 0;
+border-color: #7F7F7F transparent;
+display: block;
+width: 0;
+z-index: 0;
+margin-left: -5px;
+bottom: -9px;
+left: 4%;
+}
