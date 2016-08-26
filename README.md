@@ -1,6 +1,7 @@
 # Linky
 
 A link sharing app developed using the MEAN stack.
+https://meanlinky.herokuapp.com/
 
 - 15.8. ma - 3 h
 - 16.8. ti - 3 h
@@ -44,8 +45,3 @@ Looks
 - UI: show negative scores as red?
 - clean CSS/styles, use responsive CSS, edit colors...
 - max string lengths/validations
-
-
-
-- mlab & ...heroku?
-- public repo
