@@ -16,7 +16,7 @@ https://meanlinky.herokuapp.com/
 - 25.8. to - 4,5 h
 - 26.8. pe - 5 h
 
---> 30,5 h
+--> 35 h
 
 
 # TODO
