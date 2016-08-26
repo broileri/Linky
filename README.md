@@ -1,6 +1,6 @@
 # Linky
 
-A link sharing app developed using the MEAN stack.
+A link sharing app developed using the MEAN (MongoDB, Express, Angular, Node) stack.
 https://meanlinky.herokuapp.com/
 
 - 15.8. ma - 3 h
