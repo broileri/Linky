@@ -1,5 +1,11 @@
+body { 
+	font-size: 100%; 
+	text-align: center;
+}
+
 .linkyBackground {
 	background-image: url(/images/ignasi_pattern_s.png);
+  
 }
 
 
@@ -9,7 +15,7 @@
 
 
 .viewLink {
-	font-size: 12px;
+	font-size: 60%;
 }
 
 .linkDescriptionBackground {
@@ -24,18 +30,36 @@
 
 .linkyContent {
 	margin-top: 5%;
+	margin-right: 2%
+	margin-left: 2%;
 	color: #595959;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
-	border-radius: 10px;
+	border-radius: 10px;	
+	display: inline-block;
+	text-align: left;
+	padding-left: 4%;
+	padding-right: 4%;
+	padding-bottom: 2%;
+	width: 50%;
+	word-break:break-all;  
 }
+
 
 .linkyContent a:link{
     color: #777;
 }
 
+.linksize {
+	font-size: 150%;
+}
+
 .linkyContent a:visited{
     color: #777;
+}
+
+.homeGuide {
+	font-size: 130%;
 }
 
 .upvotes {
@@ -43,20 +67,25 @@
 }
 
 .upvoteWrapper {
-	margin-right: 3px;	
+	margin-right: 3px;
+	font-size: 140%;	
 }
 
 .linkWrapper {
-	font-size:20px;
+	font-size: 220%;
 	padding-left:10px;
 }
 
-.commentBody { 	
+.commentBody {	 	
     word-break:break-all;           
 }
 
 .commentAuthor {
    margin: 10px;
+}
+
+.commentWrapper {
+   
 }
 
 .bubble 
@@ -99,4 +128,44 @@ z-index: 0;
 margin-left: -5px;
 bottom: -9px;
 left: 4%;
+}
+
+@media screen and (max-width: 700px){
+    body {
+    	font-size: 100%;
+    }
+    h1 {
+    	font-size: 300%;
+    }
+
+    h2 {
+    	font-size: 250%;
+    }
+
+    h3 {
+    	font-size: 100%;
+    }
+
+    .bubble:after {
+		left: 8%;
+	}
+
+	.bubble:before {
+		left: 8%;
+	}
+
+	.linkyContent {
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 400px){
+  
+    .bubble:after {
+		left: 12%;
+	}
+
+	.bubble:before {
+		left: 12%;
+	}
 }

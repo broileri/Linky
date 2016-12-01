@@ -1,10 +1,10 @@
-<div class="col-md-6 col-md-offset-3 linkyContent linkyColor">
+<div class="linkyContent linkyColor">
   <div class="page-header">
 
-    <h3>
+    <h1>
       {{post.title}}
       <span style="font-size:17px;"">({{post.upvotes}})</span>
-    </h3>
+    </h1>
     <a target='_blank' href="{{post.link}}">{{shortenedLink}}</a> -     
     <span ng-show="currentUserIsAuthor()">
       posted by you <a href="#" ng-click="deletePost()">DELETE POST</a>
@@ -15,34 +15,37 @@
     <a class="pull-right" href='#/home'> <span class='glyphicon glyphicon-arrow-left'/> Back</a>  
   </div> 
 
-  <div class="linkDescriptionBackground">
-    {{post.description}}
+  <div ng-show="post.description.length>0">
+    <div class="linkDescriptionBackground">
+      Description <br><br>
+      {{post.description}}
+    </div>
+    <span class="pull-right">
+          ({{post.upvotes}})
+          <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementPostUpvotes(post)"></span>
+          <span class="glyphicon glyphicon-thumbs-down" ng-click="reducePostUpvotes(post)"></span>
+    </span>
+    <br>
   </div>
-  <span class="pull-right">
-        ({{post.upvotes}})
-        <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementPostUpvotes(post)"></span>
-        <span class="glyphicon glyphicon-thumbs-down" ng-click="reducePostUpvotes(post)"></span>
-  </span>
-  <br>
-  <h2>Comments</h2>
+  <div ng-show="post.comments.length>0">
+    <h3>Comments</h3>
 
-  <div class="commentWrapper" ng-repeat="comment in post.comments | orderBy:'-upvotes'">
-       
-    <div class="commentBody bubble">
-    <div>
-      {{comment.body}} 
+    <div class="commentWrapper" ng-repeat="comment in post.comments | orderBy:'-upvotes'">
+         
+      <div class="commentBody bubble">    
+        {{comment.body}}     
       
       </div>
+      <div class="commentAuthor">      
+         {{comment.author}}
+         <span class="pull-right">
+          ({{comment.upvotes}})
+          <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span>
+          <span class="glyphicon glyphicon-thumbs-down" ng-click="reduceUpvotes(comment)"></span>
+        </span>
+      </div> 
+    <br>
     </div>
-    <div class="commentAuthor">      
-       {{comment.author}}
-       <span class="pull-right">
-        ({{comment.upvotes}})
-        <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span>
-        <span class="glyphicon glyphicon-thumbs-down" ng-click="reduceUpvotes(comment)"></span>
-      </span>
-    </div> 
-<br>
   </div>
 
   <form ng-submit="addComment()" ng-show="isLoggedIn()" style="margin-top:30px;">
