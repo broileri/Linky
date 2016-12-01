@@ -1,7 +1,8 @@
 # Linky
 
-A link sharing app developed using the MEAN stack.
+A link sharing app developed using the MEAN (MongoDB, Express, Angular, Node) stack.
 https://meanlinky.herokuapp.com/
+
 
 # TODO
 
@@ -27,6 +28,6 @@ Features
 Looks
 - UI: animations for upvotes/downvotes?
 - UI: show negative scores as red?
-- clean CSS/styles, edit colors...
+- clean CSS/styles, make all CSS responsive, edit colors...
 - max string lengths/validations
 - bigger fonts
