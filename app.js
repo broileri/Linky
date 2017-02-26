@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 // MongoDB
 var mongoose = require('mongoose');
 
-var mongoURI = "mongodb://localhost:27017/news";
+var mongoURI = "such big secret. wow. no tell in public repo. wow.";
 var MongoDB = mongoose.connect(mongoURI).connection;
 MongoDB.on('error', function(err) { console.log(err.message); });
 MongoDB.once('open', function() {
@@ -35,11 +35,16 @@ var users = require('./routes/users');
 
 var app = express();
 
+// Preparing the server
+app.use('/js', express.static(__dirname + '/public/vendor/bootstrap/dist/js')); // redirect bootstrap JS
+app.use('/css', express.static(__dirname + '/public/vendor/bootstrap/dist/css')); // redirect CSS bootstrap
+app.use('/fonts', express.static(__dirname + '/public/vendor/bootstrap/dist/fonts')); // redirect bootstrap fonts
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
+// uncomment after placing favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());

@@ -1,63 +1,130 @@
-<div class="linkyContent linkyColor">
-  <div class="page-header">
-
-    <h1>
-      {{post.title}}
-      <span style="font-size:17px;"">({{post.upvotes}})</span>
-    </h1>
-    <a target='_blank' href="{{post.link}}">{{shortenedLink}}</a> -     
-    <span ng-show="currentUserIsAuthor()">
-      posted by you <a href="#" ng-click="deletePost()">DELETE POST</a>
-    </span>
-    <span ng-hide="currentUserIsAuthor()">
-      posted by {{post.author}}
-    </span>
-    <a class="pull-right" href='#/home'> <span class='glyphicon glyphicon-arrow-left'/> Back</a>  
-  </div> 
-
-  <div ng-show="post.description.length>0">
-    <div class="linkDescriptionBackground">
-      Description <br><br>
-      {{post.description}}
-    </div>
-    <span class="pull-right">
-          ({{post.upvotes}})
-          <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementPostUpvotes(post)"></span>
-          <span class="glyphicon glyphicon-thumbs-down" ng-click="reducePostUpvotes(post)"></span>
-    </span>
-    <br>
+<div class="row">
+  <div class="col-sm-2">
+    <button ng-show="previousPost" id="previousButton" ng-click="goToPost(previousPost)" class='btn btn-primary btn-lg pull-right buttonMargin' data-toggle="tooltip" title="Previous post" data-placement="bottom" role="button" >
+          <span class='glyphicon glyphicon-chevron-left'></span>
+    </button>
   </div>
-  <div ng-show="post.comments.length>0">
-    <h3>Comments</h3>
+  <div class="col-sm-8">
+    <div class="linkyMain" style="margin-bottom:15px;">
+      <div class="commentHeader page-header">
 
-    <div class="commentWrapper" ng-repeat="comment in post.comments | orderBy:'-upvotes'">
-         
-      <div class="commentBody bubble">    
-        {{comment.body}}     
-      
-      </div>
-      <div class="commentAuthor">      
-         {{comment.author}}
-         <span class="pull-right">
-          ({{comment.upvotes}})
-          <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span>
-          <span class="glyphicon glyphicon-thumbs-down" ng-click="reduceUpvotes(comment)"></span>
+        <div id="linkViewHead1">      
+          {{post.title}}        
+          
+          <span>
+            ({{post.votes}})
+          </span>      
+
+        </div>
+
+        <a target='_blank' href="{{post.link}}" data-toggle="tooltip" title="{{post.link}}" data-placement="bottom">{{shortenLink()}}</a> -
+
+        <span ng-show="currentUserIsAuthor()">
+          posted by you - <span class="delete" title="delete" ng-click="deletePost()">delete</span>
         </span>
-      </div> 
-    <br>
-    </div>
+
+        <span ng-hide="currentUserIsAuthor()">
+          posted by {{post.author}}
+        </span>
+        
+     
+
+        <div ng-show="post.description.length>0">
+          <span id="detailViewHead1">Description</span>
+          <div class="linkDescriptionBackground">    
+            {{post.description}}
+          </div>
+        </div>
+
+        <div class="pull-right thumbs">    
+            ({{post.votes}})      
+            <span id="{{post._id}}-uppost" class="glyphicon glyphicon-thumbs-up" ng-click="upvote(post)"></span>
+            <span id="{{post._id}}-downpost" class="glyphicon glyphicon-thumbs-down" ng-click="downvote(post)"></span>    
+        </div> 
+      
+
+
+        <div class="form-group">
+          <div ng-show="isLoggedIn()" class="toggleLink"> 
+            <a  for="collapseOne" id="commentFormOpener" ng-click="toggleLinkText()" data-toggle="collapse" href="#collapseOne" target="_self" aria-expanded="true" aria-controls="collapseOne">+ Add a Comment</a>
+          </div>
+          <div class="collapse formWidth" id="collapseOne">
+            <form name="commentForm" ng-submit="addComment()">        
+
+              <textarea id="descriptionArea" name="commentBox" class="form-control" placeholder="Comment" ng-model="commentBox" maxlength="200" required></textarea>
+
+              <span class="pull-right">            
+                Characters left: <span ng-show="200 - commentBox.length > 0">{{ 200 - commentBox.length }}</span> 
+                                 <span ng-show="200 - commentBox.length == 0" class="formError">0</span>          
+              </span>
+              <br>
+              <button type="submit" class="btn btn-primary" ng-disabled="commentForm.$invalid || commentForm.$untouched || commentForm.$pristine">Post</button>
+            </form>      
+          </div>
+        </div>
+
+        <div ng-show="!isLoggedIn() && post.comments.length==0">
+          <p>You need to <a href="/#/login">Log In</a> before you can comment or vote.</p>
+        </div>
+      </div>
   </div>
 
-  <form ng-submit="addComment()" ng-show="isLoggedIn()" style="margin-top:30px;">
-    <h3>Add a new comment</h3>
 
-    <div class="form-group">
-      <textarea class="form-control" placeholder="Comment" ng-model="body"></textarea>
+
+  <div ng-show="post.comments.length>0" class="linkyMain" style="padding-top:10px;">
+
+
+    <div>
+      <h3 id="comments">Comments</h3>
+
+      <p id="sorter">
+        Sort by 
+        <span class="sorter sorterEnabled" ng-click="setOrder('-votes')">popularity</span>
+        <span class="sorter" ng-click="setOrder('-_id')">newest</span>
+      </p>
+      
+
+      <div ng-repeat="comment in post.comments | orderBy: order">
+        <div >   
+          <div id="{{comment._id}}" class="commentBody bubble">    
+            {{comment.body}}      
+          </div>
+          <div class="commentAuthor">
+            <span ng-show="currentUserIsCommenter(comment.author)">
+               {{comment.author}} (you) - 
+               <span class="delete" title="delete" ng-click="deleteComment(comment)" >
+                  delete
+               </span>
+               
+             </span>
+             <span ng-hide="currentUserIsCommenter(comment.author)">       
+             {{comment.author}}
+             </span>
+
+             <span class="pull-right">
+              <span id="commentVoting">
+                ({{comment.votes}})
+                <span id="{{comment._id}}-upcomment" class="glyphicon glyphicon-thumbs-up" ng-click="upvoteComment(comment)"></span>
+                <span id="{{comment._id}}-downcomment" class="glyphicon glyphicon-thumbs-down" ng-click="downvoteComment(comment)"></span>
+              </span>
+            </span>
+          </div>
+            
+          <br>
+        </div>
+      </div>
+
+      <br>
+      <div ng-hide="isLoggedIn()">
+        <p>You need to <a href="/#/login">Log In</a> before you can comment or vote.</p>
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary">Post</button>
-  </form>
-  <br>
-  <div ng-hide="isLoggedIn()">
-    <p>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can comment.</p>
+  
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <button ng-show="nextPost" id="nextButton" ng-click="goToPost(nextPost)" class='btn btn-primary btn-lg buttonMargin' data-toggle="tooltip" title="Next post" data-placement="bottom" role="button" >
+          <span class='glyphicon glyphicon-chevron-right'></span>
+    </button>
   </div>
 </div>

@@ -1,28 +1,32 @@
-<div class="col-md-6 col-md-offset-3 linkyContent linkyColor">
-<div class="page-header">
-  <h1>Linky</h1>
-</div>
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+    <div class="linkyMain">
+      <div class="page-header">
+        <h1>Linky</h1>
+      </div>
 
-<div ng-show="error" class="alert alert-danger row">
-  <span>{{ error.message }}</span>
-</div>
+      
 
-<form ng-submit="register()"
-  style="margin-top:30px;">
-  <h3>Register</h3>
+      <form ng-submit="register()" class="formMargin">
+        <h3>Register</h3>
 
-  <div class="form-group">
-    <input type="text"
-    class="form-control"
-    placeholder="Username"
-    ng-model="user.username"></input>
+        <div class="form-group bottomMargin">
+          <input type="text" class="form-control" autocorrect=off placeholder="Username" ng-model="user.username"></input>
+          <span ng-show="error.username" class="formError pull-right">
+            {{ error.username }}
+          </span>
+        </div>
+        <div class="form-group bottomMargin">
+          <input type="password" class="form-control" autocorrect=off placeholder="Password" ng-model="user.password"></input>
+          <span ng-show="error.password" class="formError pull-right">
+            {{ error.password }}
+          </span>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+
+    </div>
   </div>
-  <div class="form-group">
-    <input type="password"
-    class="form-control"
-    placeholder="Password"
-    ng-model="user.password"></input>
-  </div>
-  <button type="submit" class="btn btn-primary">Register</button>
-</form>
+  <div class="col-sm-2"></div>
 </div>

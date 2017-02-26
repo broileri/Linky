@@ -1,92 +1,248 @@
-body { 
-	font-size: 100%; 
-	text-align: center;
+/* general app styles */
+
+html {
+  overflow-y: scroll;
 }
+
+
+h1, h2, h3 {
+	text-shadow: none;
+}
+
 
 .linkyBackground {
-	background-image: url(/images/ignasi_pattern_s.png);
-  
+	background-image: url(/images/ignasi_pattern_s.png);  
 }
 
 
-.linkyColor {
+.linkyMain {
+
+
+    /* borders */	
+	border-left: #cccccc solid;
+	border-top: #cccccc solid;
+	border-right: #9e9e9e solid;
+	border-bottom: #9e9e9e solid;
+	
+	
+	/* padding */
+	padding-left: 4%;
+	padding-right: 4%;
+	padding-bottom: 2%;
+	
+	/* text */
+	word-break: normal;           
+    word-wrap: break-word;
+	text-align: left;
+
+	/* colors */
 	background-color: #F8F8F8;
+	color: #404040;
+
 }
 
 
-.viewLink {
-	font-size: 60%;
+.linkyMain a:link{
+    color: black;
 }
 
-.linkDescriptionBackground {
+
+.linkyMain a:visited{
+    color: #7a8288;
+}
+
+
+.contentArea {
+	margin-bottom: 20px;
+}
+
+
+.tooltip-inner {
+    max-width: none;
+    white-space: nowrap;
+}
+
+
+
+
+
+/* style for scrolling to top button */
+.back-to-top {
+	cursor: pointer;
+	position: fixed;
+	bottom: 0;
+	right: 20px;
+	display:none;
+}
+
+
+
+
+
+/* previous and next post buttons*/ 
+.buttonMargin {
+	margin-top: 20%;
+}
+
+
+
+
+
+/* 'links' for sorting posts/comments */
+.sorterEnabled {
+	color: #004d99 !important;
+	font-weight: bold;
+}
+
+.sorter {
+	color: black;
+
+}
+
+.sorter:hover {
+	text-decoration: underline;
+	color: #004d99;
+}
+
+
+
+
+
+/* form validations */
+.formError {
+	color: #990000;
+}
+
+
+
+
+
+/* style for comment/post deletion */
+
+.delete {	
+}
+
+
+.delete:hover {
+	color: #990000;
+	text-decoration: underline;
+	font-weight: bold;	
+}
+
+
+.delete::after {
+    
+    content:attr(title);
+    font-weight:bold;
+    text-decoration: underline;
+    height:1px;
+    color:transparent;
+    overflow:hidden;
+    visibility:hidden;
+    margin-bottom:-1px;
+}
+
+
+
+
+
+/* posts.html */
+.linkDescriptionBackground { /* also used in about.html */
 	background-color: #FFFFFF;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
-	padding: 10px;
-	border: #7F7F7F solid 2px;
+	border: #bfbfbf solid 2px;
+	padding: 10px;	
+	margin-bottom: 10px;
 }
 
 
-.linkyContent {
-	margin-top: 5%;
-	margin-right: 2%
-	margin-left: 2%;
-	color: #595959;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;	
-	display: inline-block;
-	text-align: left;
-	padding-left: 4%;
-	padding-right: 4%;
-	padding-bottom: 2%;
-	width: 50%;
-	word-break:break-all;  
+.toggleLink {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 2em;	
 }
 
-
-.linkyContent a:link{
-    color: #777;
-}
-
-.linksize {
-	font-size: 150%;
-}
-
-.linkyContent a:visited{
-    color: #777;
-}
-
-.homeGuide {
-	font-size: 130%;
-}
-
-.upvotes {
-	color: #a6a6a6;
-}
-
-.upvoteWrapper {
-	margin-right: 3px;
-	font-size: 140%;	
-}
-
-.linkWrapper {
-	font-size: 220%;
-	padding-left:10px;
-}
 
 .commentBody {	 	
-    word-break:break-all;           
+    word-break: normal;           
+    word-wrap: break-word;
 }
 
 .commentAuthor {
    margin: 10px;
 }
 
-.commentWrapper {
-   
+
+.thumbs {
+	padding-right: 13px;
+	margin-bottom: 50px;
+	display: block;
 }
+
+
+.commentHeader {
+	border-bottom: none !important;
+}
+
+
+#commentVoting {
+	padding-right: 3px;
+}
+
+
+#linkViewHead1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 500;
+	line-height: 1.1;
+	color: inherit;
+
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+#linkViewHead1 > span {
+	font-size: 0.5em;
+	display:inline-block; 
+	vertical-align:middle;
+}
+
+#detailViewHead1 {
+	display: block;
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 0.3em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: 550;
+}
+
+.formWidth {
+	width: 100%;
+}
+
+#descriptionArea {
+    max-width: 100%;
+}
+
+
+
+
+
+/* home.html */
+.bottomMargin {
+	margin-bottom: 30px;
+}
+
+
+
+
+
+/* Comment speech bubbles */
 
 .bubble 
 {
@@ -97,7 +253,7 @@ color: #595959;
 -webkit-border-radius: 10px;
 -moz-border-radius: 10px;
 border-radius: 10px;
-border: #7F7F7F solid 2px;
+border: #afafaf solid 2px;
 }
 
 .bubble:after 
@@ -121,7 +277,7 @@ content: '';
 position: absolute;
 border-style: solid;
 border-width: 7px 5px 0;
-border-color: #7F7F7F transparent;
+border-color: #afafaf transparent;
 display: block;
 width: 0;
 z-index: 0;
@@ -130,32 +286,13 @@ bottom: -9px;
 left: 4%;
 }
 
-@media screen and (max-width: 700px){
-    body {
-    	font-size: 100%;
-    }
-    h1 {
-    	font-size: 300%;
-    }
-
-    h2 {
-    	font-size: 250%;
-    }
-
-    h3 {
-    	font-size: 100%;
-    }
+@media screen and (max-width: 700px) {    
 
     .bubble:after {
 		left: 8%;
 	}
-
 	.bubble:before {
 		left: 8%;
-	}
-
-	.linkyContent {
-		width: 80%;
 	}
 }
 
@@ -164,8 +301,102 @@ left: 4%;
     .bubble:after {
 		left: 12%;
 	}
-
 	.bubble:before {
 		left: 12%;
 	}
 }
+
+
+@media screen and (max-width: 160px){
+
+    background-size: contain;
+
+    .bubble:after {
+		left: 12%;
+	}
+	.bubble:before {
+		left: 12%;
+	}
+}
+
+
+
+/* Blinking posts/comments on add */
+
+.flashNew {
+	-webkit-animation: highlightBlink 1s;
+ 	-moz-animation: highlightBlink 1s;
+ 	-o-animation: highlightBlink 1s;
+ 	-ms-animation: highlightBlink 1s;
+	animation: highlightBlink 1s;
+}
+
+
+ @-webkit-keyframes highlightBlink {
+ 	0% { background-color: #DDE7F1 ; } 	
+ 	50% { background-color: #7DA4CA; }
+ 	100% { background-color: #DDE7F1; }
+ }
+ @-moz-keyframes highlightBlink {
+ 	0% { background-color: #DDE7F1; }
+ 	50% { background-color: #7DA4CA; }
+ 	100% { background-color: #DDE7F1; }
+ }
+ @-ms-keyframes highlightBlink {
+ 	0% { background-color: #DDE7F1; }
+ 	50% { background-color: #7DA4CA; }
+ 	100% { background-color: #DDE7F1; }
+ }
+ @-o-keyframes highlightBlink {
+ 	0% { background-color: #DDE7F1; }
+ 	50% { background-color: #7DA4CA; }
+ 	100% { background-color: #DDE7F1; }
+ }
+ @keyframes highlightBlink {
+ 	0% { background-color: #DDE7F1; }
+ 	50% { background-color: #7DA4CA; }
+ 	100% { background-color: #DDE7F1; }
+}
+
+
+.flashNewComment {
+	-webkit-animation: highlightBlink 1s;
+ 	-moz-animation: highlightBlink 1s;
+ 	-o-animation: highlightBlink 1s;
+ 	-ms-animation: highlightBlink 1s;
+	animation: highlightBlink 1s;
+}
+
+.flashNewComment:after {
+	-webkit-animation: highlightBlinkAfter 1s;
+ 	-moz-animation: highlightBlinkAfter1s;
+ 	-o-animation: highlightBlinkAfter 1s;
+ 	-ms-animation: highlightBlinkAfter 1s;
+	animation: highlightBlinkAfter 1s;
+}
+
+
+ @-webkit-keyframes highlightBlinkAfter {
+ 	0% { border-color: #DDE7F1 transparent; } 	
+ 	50% { border-color: #7DA4CA transparent; }
+ 	100% {border-color: #DDE7F1 transparent; }
+ }
+ @-moz-keyframes highlightBlinkAfter {
+ 	0% { border-color: #DDE7F1 transparent; }
+ 	50% { border-color: #7DA4CA transparent; }
+ 	100% { border-color: #DDE7F1 transparent; }
+ }
+ @-ms-keyframes highlightBlinkAfter {
+ 	0% { border-color: #DDE7F1 transparent; }
+ 	50% { border-color: #7DA4CA transparent; }
+ 	100% { border-color: #DDE7F1 transparent; }
+ }
+ @-o-keyframes highlightBlinkAfter {
+ 	0% { border-color: #DDE7F1 transparent; }
+ 	50% { border-color: #7DA4CA transparent; }
+ 	100% { border-color: #DDE7F1 transparent; }
+ }
+ @keyframes highlightBlinkAfter {
+ 	0% { border-color: #DDE7F1 transparent; }
+ 	50% { border-color: #7DA4CA transparent; }
+ 	100% { border-color: #DDE7F1 transparent; }

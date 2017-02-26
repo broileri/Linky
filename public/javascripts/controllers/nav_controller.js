@@ -1,5 +1,6 @@
-app.controller('NavController', ['$scope', 'auth', function($scope, auth) {
-    $scope.isLoggedIn = auth.isLoggedIn;
-    $scope.currentUser = auth.currentUser;
-    $scope.logOut = auth.logOut;
+app.controller('NavController', ['$scope', 'userinfo', function($scope, userinfo) {
+    $scope.isLoggedIn = userinfo.isLoggedIn;
+    $scope.currentUser = userinfo.currentUser;
+    $scope.logOut = userinfo.logOut;
+
 }]);

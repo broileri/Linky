@@ -1,33 +1,30 @@
 # Linky
 
-A link sharing app developed using the MEAN (MongoDB, Express, Angular, Node) stack.
+A link sharing app developed using the MEAN (MongoDB, Express.js, Angular.js, Node.js) stack with a bit of jQuery.
 https://meanlinky.herokuapp.com/
 
 
 # TODO
 
-Features
-- allow users to vote only once per link
-- display the number of comments next to each post on the main page?
-- hide the 'new comment' and 'new post' input box until a user clicks a button to see the field
-- make 'new comment' box easier to reach if a post has a lot of comments
-- error/success flash msgs (post deletion, post addition, comment addition...)
-- delete only own post (server side)
-- hide the link description if a link doesn't have a description
-- link categories/tags (show posts tagged as, search tags)
-- newest links on main page?
-- search?
-- show links user has upvoted?
-- show user's posted links/comments?
-- poster & link to tooltip?
-- allow users to comment a link without opening view?
-- comment dates
-- account settings?
-- tests
+- new feature: add link categories/tags & search posts by tags
+- new feature: user account view
+- new feature: user account view -> show links user has upvoted?
+- new feature: user account view -> show user's posted links/comments?
+- new feature: reset password functionality
+- new feature: search posts by title/user
 
-Looks
-- UI: animations for upvotes/downvotes?
-- UI: show negative scores as red?
-- clean CSS/styles, make all CSS responsive, edit colors...
-- max string lengths/validations
-- bigger fonts
+- delete only own post/comment (server side)
+- move DOM manipulations into directives
+- make "cached" vote permits disappear after a short time, so users can change their vote without logging out if server is out partying
+- show comment dates
+- make scrolling less stupid
+- flash link/comment when its place on the page is changed due to voting
+- tests :_D
+- easier access to home.html's form if the db has a lot of posts
+- show form validation errors only after user has clicked submit + maybe make most of registering validations angular's responsibility
+- password length validation server side
+- if a user has already rated a link/post and tries to give it the same score again, show a tooltip that explains what's up
+
+
+
+(To run locally, run mongo with "mongod &", node with "npm i" and "npm start". http://localhost:3000/#/home)
